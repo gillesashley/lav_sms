@@ -39,16 +39,16 @@ services:
       POSTGRES_PASSWORD: password
 
   # # Application Service
-  # app:
-  #   container_name: blog
-  #   build:
-  #     context: ./php
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./src:/var/www
-  #   ports:
-  #     - "9000:9000"
-  #   working_dir: /var/www
+  app:
+    container_name: lav_sms
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/www
+    ports:
+      - "9000:9000"
+    working_dir: /var/www
 
   # phpMyAdmin Service
   # phpmyadmin:
