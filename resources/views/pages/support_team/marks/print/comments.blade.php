@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td><strong>NEXT TERM FEES:</strong></td>
-            <td><del>GHC</del>{{ $s['next_term_fees_'.strtolower($ct)] }}</td>
+            <td><del>₵</del>{{ $s['next_term_fees_'.strtolower($ct)] }}</td>
         </tr>
         </tbody>
     </table>
