@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Teacher Chike',
+            ['name' => 'Miss Vivor',
                 'email' => 'teacher@teacher.com',
                 'user_type' => 'teacher',
                 'username' => 'teacher',
