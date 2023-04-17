@@ -2,30 +2,18 @@ version: '3.8'
 
 services:
 
-  # Web Server Service
   nginx:
     image: nginx:alpine
     container_name: nginx
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www
+      - .:/var/www/
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     depends_on:
       - app
       - db
 
-  # Database Service
-  # db:
-  #   image : mysql
-  #   container_name : mysql
-  #   volumes:
-  #     - ./mysql/data:/var/lib/mysql
-  #   ports:
-  #     - "3306:3306"
-  #   environment:
-  #     MYSQL_DATABASE: lav_sms_db
-  #     MYSQL_ROOT_PASSWORD: password
   db:
     image: postgres
     container_name: postgres
@@ -38,26 +26,19 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
 
-  # # Application Service
   app:
     container_name: lav_sms
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        PHP_VERSION: "8.1"
     volumes:
-      - ./src:/var/www
+      - .:/var/www/
     ports:
       - "9000:9000"
-    working_dir: /var/www
+    working_dir: /var/www/
 
-  # phpMyAdmin Service
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   container_name: phpmyadmin
-  #   ports:
-  #     - "3400:80"
-  #   depends_on:
-  #     - db
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgAdmin
@@ -66,5 +47,5 @@ services:
     depends_on:
       - db
     environment:
-      PGADMIN_DEFAULT_EMAIL: hanieasemi76@gmail.com
+      PGADMIN_DEFAULT_EMAIL: mr.gillesashley@gmail.com
       PGADMIN_DEFAULT_PASSWORD: password

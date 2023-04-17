@@ -1,7 +1,6 @@
-FROM php:8.0.3-fpm
+FROM php:8.1-fpm
 
-RUN docker-php-ext-install pdo pdo_mysql
-
+RUN docker-php-ext-install pdo pdo_mysql exif pcntl bcmath ctype curl iconv xml soap mbstring tokenizer bz2 zip
 
 RUN apt-get update
 
@@ -26,23 +25,6 @@ RUN apt-get -y install --fix-missing \
     libicu-dev \
     libonig-dev \
     libxml2-dev
-
-RUN echo "\e[1;33mInstall important docker dependencies\e[0m"
-RUN docker-php-ext-install \
-    exif \
-    pcntl \
-    bcmath \
-    ctype \
-    curl \
-    iconv \
-    xml \
-    soap \
-    pcntl \
-    mbstring \
-    tokenizer \
-    bz2 \
-    zip \
-    intl
 
 # Install Postgre PDO
 RUN apt-get install -y libpq-dev \

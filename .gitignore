@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /.idea
+/postgresql
 Homestead.json
 Homestead.yaml
 npm-debug.log
@@ -15,3 +16,4 @@ _ide_helper.php
 storage
 .phpstorm.meta.php
 .editorconfig
+.DS_Store
