@@ -16,7 +16,7 @@ class SettingsTableSeeder extends Seeder
         DB::table('settings')->delete();
 
         $data = [
-            ['type' => 'current_session', 'description' => '2018-2019'],
+            ['type' => 'current_session', 'description' => '2023-2024'],
             ['type' => 'system_title', 'description' => 'MGEC'],
             ['type' => 'system_name', 'description' => 'MOTHERS GLORY EDUCATIONAL CENTER'],
             ['type' => 'term_ends', 'description' => '7/09/2023'],

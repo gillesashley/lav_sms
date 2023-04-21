@@ -17,6 +17,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $with = ['student_record'];
+
     /**
      * The attributes that are mass assignable.
      *
