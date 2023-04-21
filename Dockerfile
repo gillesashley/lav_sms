@@ -1,6 +1,7 @@
 FROM php:8.1-fpm
 
-RUN docker-php-ext-install pdo pdo_mysql exif pcntl bcmath ctype curl iconv xml soap mbstring tokenizer bz2 zip
+RUN docker-php-ext-install pdo pdo_mysql bcmath
+#exif pcntl bcmath ctype curl iconv xml soap mbstring tokenizer bz2 zip
 
 RUN apt-get update
 

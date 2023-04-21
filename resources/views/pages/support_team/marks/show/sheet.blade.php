@@ -5,6 +5,7 @@
         <th rowspan="2">SUBJECTS</th>
         <th rowspan="2">CA1<br>(20)</th>
         <th rowspan="2">CA2<br>(20)</th>
+        <th rowspan="2">CA2<br>(20)</th>
         <th rowspan="2">EXAMS<br>(60)</th>
         <th rowspan="2">TOTAL<br>(100)</th>
 
