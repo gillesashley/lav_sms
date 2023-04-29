@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -20,7 +21,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->delete();
 
         $this->createNewUsers();
-        $this->createManyUsers( 3);
+        $this->createManyUsers(3);
     }
 
     protected function createNewUsers()
@@ -29,7 +30,8 @@ class UsersTableSeeder extends Seeder
 
         $d = [
 
-            ['name' => 'Mr. Gilles Ashley',
+            [
+                'name' => 'Mr. Gilles Ashley',
                 'email' => 'mr.gillesashley@gmail.com',
                 'username' => 'gilash',
                 'password' => $password,
@@ -38,16 +40,18 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Admin KORA',
-            'email' => 'admin@admin.com',
-            'password' => $password,
-            'user_type' => 'admin',
-            'username' => 'admin',
-            'code' => strtoupper(Str::random(10)),
-            'remember_token' => Str::random(10),
+            [
+                'name' => 'Admin KORA',
+                'email' => 'admin@admin.com',
+                'password' => $password,
+                'user_type' => 'admin',
+                'username' => 'admin',
+                'code' => strtoupper(Str::random(10)),
+                'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Miss Vivor',
+            [
+                'name' => 'Miss Vivor',
                 'email' => 'teacher@teacher.com',
                 'user_type' => 'teacher',
                 'username' => 'teacher',
@@ -56,7 +60,8 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Parent Kaba',
+            [
+                'name' => 'Parent Kaba',
                 'email' => 'parent@parent.com',
                 'user_type' => 'parent',
                 'username' => 'parent',
@@ -65,7 +70,8 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Accountant Jeff',
+            [
+                'name' => 'Accountant Jeff',
                 'email' => 'accountant@accountant.com',
                 'user_type' => 'accountant',
                 'username' => 'accountant',
@@ -80,23 +86,22 @@ class UsersTableSeeder extends Seeder
     protected function createManyUsers(int $count)
     {
         $data = [];
-    $user_type = Qs::getAllUserTypes(['super_admin', 'librarian', 'student']);
+        $user_type = Qs::getAllUserTypes(['super_admin', 'librarian', 'student']);
 
-        for($i = 1; $i <= $count; $i++){
+        for ($i = 1; $i <= $count; $i++) {
 
-            foreach ($user_type as $k => $ut){
+            foreach ($user_type as $k => $ut) {
 
-                $data[] = ['name' => ucfirst($user_type[$k]).' '.$i,
-                    'email' => $user_type[$k].$i.'@'.$user_type[$k].'.com',
+                $data[] = [
+                    'name' => ucfirst($user_type[$k]) . ' ' . $i,
+                    'email' => $user_type[$k] . $i . '@' . $user_type[$k] . '.com',
                     'user_type' => $user_type[$k],
-                    'username' => $user_type[$k].$i,
+                    'username' => $user_type[$k] . $i,
                     'password' => Hash::make($user_type[$k]),
                     'code' => strtoupper(Str::random(10)),
                     'remember_token' => Str::random(10),
                 ];
-
             }
-
         }
 
         DB::table('users')->insert($data);
